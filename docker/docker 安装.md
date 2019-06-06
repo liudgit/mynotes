@@ -41,21 +41,15 @@ $ sudo service docker start
 
 ### Step 1: 查找Docker-CE的版本:
 
-'''
-   yum list docker-ce.x86_64 --showduplicates | sort -r
 
-   Loading mirror speeds from cached hostfile
+> yum list docker-ce.x86_64 --showduplicates | sort -r
+  Loading mirror speeds from cached hostfile
+  Loaded plugins: branch, fastestmirror, langpacks
+  docker-ce.x86_64            17.03.1.ce-1.el7.centos            docker-ce-stable
+  docker-ce.x86_64            17.03.1.ce-1.el7.centos            @docker-ce-stable
+  docker-ce.x86_64            17.03.0.ce-1.el7.centos            docker-ce-stable
+  Available Packages
 
-   Loaded plugins: branch, fastestmirror, langpacks
-
-   docker-ce.x86_64            17.03.1.ce-1.el7.centos            docker-ce-stable
-
-   docker-ce.x86_64            17.03.1.ce-1.el7.centos            @docker-ce-stable
-
-   docker-ce.x86_64            17.03.0.ce-1.el7.centos            docker-ce-stable
-
-   Available Packages
-'''
 
 ### Step2 : 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.0.ce.1-1.el7.centos)
 
@@ -94,13 +88,11 @@ sudo systemctl start docker
 ### 安装指定版本的Docker-CE:
 
 ### Step 1: 查找Docker-CE的版本:
-'''
-  apt-cache madison docker-ce
 
+> apt-cache madison docker-ce
   docker-ce | 17.03.1~ce-0~ubuntu-xenial | http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages
-
   docker-ce | 17.03.0~ce-0~ubuntu-xenial | http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial/stable amd64 Packages
-'''
+
 
 ### Step 2: 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.1~ce-0~ubuntu-xenial)
 
