@@ -4,8 +4,6 @@
 $ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
 
-
-
 1.2 CentOS 7 (使用yum进行安装)
 --------------------------------
 ### step 1: 安装必要的一些系统工具
@@ -37,8 +35,6 @@ $ sudo service docker start
 ## 安装指定版本的Docker-CE:
 
 
-
-
 ### Step 1: 查找Docker-CE的版本:
 
 
@@ -59,9 +55,7 @@ $ sudo service docker start
 
 ### Step2 : 安装指定版本的Docker-CE: (VERSION 例如上面的 17.03.0.ce.1-1.el7.centos)
 
- sudo yum -y install docker-ce-[VERSION]
-
-
+sudo yum -y install docker-ce-[VERSION]
 
 
 1.3 Ubuntu 14.04 16.04 (使用apt-get进行安装)
@@ -86,8 +80,8 @@ sudo apt-get -y update
 
 sudo apt-get -y install docker-ce
 
-
 sudo systemctl enable docker
+
 sudo systemctl start docker
 
 
