@@ -45,7 +45,7 @@ java code httpclient post
  params.put("file", "hdfs://"+JAR_PATH+"streamanalysis.jar");
  params.put("proxyUser", USER);
  params.put("name", applicationName);
- params.put("className", "com.mxnavi.streamanalysis.project.streaming."+mainFunName);
+ params.put("className", "com.test.project.streaming");
  params.put("executorMemory", "1g");
  params.put("executorCores", 1);
  params.put("numExecutors", 3);
