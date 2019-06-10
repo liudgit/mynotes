@@ -96,9 +96,12 @@ spark conf 配置
 参数说明：该参数用于设置shuffle过程中一个task拉取到上个stage的task的输出后，进行聚合操作时能够使用的Executor内存的比例，默认是0.2。也就是说，Executor默认只有20%的内存用来进行该操作。shuffle操作在进行聚合时，如果发现使用的内存超出了这个20%的限制，那么多余的数据就会溢写到磁盘文件中去，此时就会极大地降低性能。
 
 参数调优建议：如果Spark作业中的RDD持久化操作较少，shuffle操作较多时，建议降低持久化操作的内存占比，提高shuffle操作的内存占比比例，避免shuffle过程中数据过多时内存不够用，必须溢写到磁盘上，降低了性能。此外，如果发现作业由于频繁的gc导致运行缓慢，意味着task执行用户代码的内存不够用，那么同样建议调低这个参数的值。
+
 *conf
 设置spark 配置
-spark.cores.max 是指你的spark程序需要的总核数
+
+
+>spark.cores.max 是指你的spark程序需要的总核数
 spark.executor.cores 是指每个executor需要的核数
 executor 数量 = spark.cores.max/spark.executor.cores
 --conf spark.executor.memory=800m   是指每个executor需要的内存
@@ -108,7 +111,7 @@ executor 数量 = spark.cores.max/spark.executor.cores
 --conf spark.eventLog.dir=hdfs://dbmtimehadoop/tmp/spark2 
 --conf spark.eventLog.enabled=false
 --conf "spark.executor.extraJavaOptions=-XX:+PrintGCDetails -XX:+PrintGCTimeStamps" 
-conf 参数
+####conf 参考:
 https://blog.csdn.net/zhanglong_4444/article/details/85069105
 https://blog.csdn.net/weixin_41008393/article/details/86503151
 
