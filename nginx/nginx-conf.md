@@ -107,7 +107,7 @@ http {
 
         listen      6088 ssl;
 
-        server_name  digital-vehicle.5th.mxnavi.com;
+        server_name  xxx;
         
         charset utf-8,gbk;
         ssl on;
@@ -130,12 +130,6 @@ http {
         	autoindex on;
         }
 
-        #location ~ /sys/.*\.(htm|gif|jpg|jpg|jpeg|png|ico|rar|css|js|zip|txt|flv|swf|doc|ppt|xls|pdf|url)$ {
-        #    root /opt/sysImages;
-        #    access_log off;
-        #    expires 24h;
-        #}
- 
         location ~ .*\.(htm|gif|jpg|jpg|jpeg|png|ico|rar|css|js|zip|txt|flv|swf|doc|ppt|xls|pdf|url)$ {
 
             root /opt/images;
