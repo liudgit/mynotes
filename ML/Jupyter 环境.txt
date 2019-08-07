@@ -1,0 +1,61 @@
+python install 
+=================================
+
+
+### jupyter notebook
+
+pip install jupyter notebook
+jupyter notebook 
+
+jupyter notebook --allow-root --no-browser --port 6789 --ip=*
+#### 远程 jupyter
+jupyter notebook --generate-config --allow-root
+
+vim ~/.jupyter/jupyter_notebook_config.py
+
+
+#### 使用
+
+
+
+
+#### python  
+
+ python -m pip install --upgrade pip
+ 
+ pip install numpy
+ pip install pandas
+ matplotlib
+ seaborn
+ sklearn
+ 
+  scipy-1.3.0 seaborn-0.9.0
+
+### 配置scala
+
+jupyter kernelspec list
+下载jupyter-scala
+https://oss.sonatype.org/content/repositories/snapshots/com/github/alexarchambault/jupyter/jupyter-scala-cli_2.10.5/0.2.0-SNAPSHOT/jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz
+
+
+tar -xvf jupyter-scala_2.10.5-0.2.0-SNAPSHOT.tar.xz -C /usr/local/
+bash /usr/local/jupyter-scala_2.10.5-0.2.0-SNAPSHOT/bin/jupyter-scala
+
+windows 下到目录下执行 .bat文件
+
+jupyter kernelspec list
+
+### 配置spark
+1. 安装
+git clone https://github.com/apache/incubator-toree.git#如果没有git命令，请先行安装
+cd incubator-toree/
+make build
+
+make dist
+
+2.修改kernel.json
+cd /Users/lzz/Library/Jupyter/kernels
+mkdir spark
+vim kernel.json
+
+参考原文：https://blog.csdn.net/moledyzhang/article/details/78850820 

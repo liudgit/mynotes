@@ -79,6 +79,7 @@ sudo add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/li
 sudo apt-get -y update
 
 sudo apt-get -y install docker-ce
+(apt-get install  docker-ce-cli containerd.io)
 
 sudo systemctl enable docker
 

@@ -1,0 +1,68 @@
+1.1 cpu平均负载
+	top、uptime
+	watch -d uptime 
+		mpstat 查看CPU使用率变化
+		mpstat -P ALL 3 4
+		pidstat 进程使用CPU 情况
+		pidstat -u 5  抓取占用CPU的进程
+		
+1.2 CPU 上下文切
+	进程上下文切换、线程上下文切换以及中断上下文切换
+	查看系统上下文切换
+	vmstat
+	
+		cs 每秒上下文切换
+		in 每秒中断
+	查看进程上下文切换
+	pidstat -w 5    pidstat -w -u 1
+	-w 参数表示输出进程切换指标，而 -u 参数则表示输出 CPU 使用指标
+	-wt 参数表示输出线程的上下文切换指标
+		cswch 每秒自愿上下文切换
+		nvcswch 每秒非自愿上下文切换
+	上下文切换次数，从数百到一万以内
+	中断
+	/proc/interrupts
+		watch -d cat /proc/interrupts
+		中断次数变多了，说明 CPU 被中断处理程序占用，还需要通过查看 /proc/interrupts文件来分析具体的中断类型
+		
+1.3 CPU使用率
+
+	cat /proc/stat | grep ^cpu
+	user（通常缩写为 us），代表用户态 CPU 时间。注意，它不包括下面的 nice 时间，但包括了 guest 时间。
+	nice（通常缩写为 ni），代表低优先级用户态 CPU 时间，也就是进程的 nice 值被调整为 1-19 之间时的 CPU 时间。这里注意，nice 可取值范围是 -20 到 19，数值越大，优先级反而越低。
+	system（通常缩写为 sys），代表内核态 CPU 时间。
+	idle（通常缩写为 id），代表空闲时间。注意，它不包括等待 I/O 的时间（iowait）。
+	iowait（通常缩写为 wa），代表等待 I/O 的 CPU 时间。
+	irq（通常缩写为 hi），代表处理硬中断的 CPU 时间。
+	softirq（通常缩写为 si），代表处理软中断的 CPU 时间。
+	steal（通常缩写为 st），代表当系统运行在虚拟机中的时候，被其他虚拟机占用的CPU 时间。
+	guest（通常缩写为 guest），代表通过虚拟化运行其他操作系统的时间，也就是运行虚拟机的 CPU 时间。
+	guest_nice（通常缩写为 gnice），代表以低优先级运行虚拟机的时间。
+	
+	怎么查看 CPU 使用率
+	top 和 ps
+	top 显示了系统总体的 CPU 和内存使用情况，以及各个进程的资源使用情况。
+	ps 则只显示了每个进程的资源使用情况。
+	
+	pidstat 1 5
+	
+	CPU 使用率过高怎么办
+	
+	perf 分析 CPU 性能问题
+	
+	大量短进程
+1.4 僵尸进程
+	dstat 可以同时查看 CPU 和 I/O这两种资源的使用情况，便于对比分析
+	pidstat -d -p 4344 1 3
+	-d 展示 I/O 统计数据，-p 指定进程号，间隔 1 秒输出 3 组数据
+	pidstat -d 1 20
+	
+	strace -p 6082
+	pstree
+	# -a 表示输出命令行选项
+	# p 表 PID
+	# s 表示指定进程的父进程
+	
+1.5 软中断
+	/proc/softirqs 提供了软中断的运行情况；
+	/proc/interrupts 提供了硬中断的运行情况
